@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Skylla Adventures - Preview</title>
+<style>
+    :root{
+      --navy:#050a30;
+      --cream:#fff6e3;
+      --accent:#0d1a55;
+      --text: #050a30;
+      --white: #ffffff;
+      --card-shadow: 0 10px 30px rgba(5,10,48,0.12);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,var(--navy) 0%, var(--cream) 100%); color:var(--text); -webkit-font-smoothing:antialiased;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(90deg,rgba(255,246,227,0.03),rgba(255,246,227,0.03));backdrop-filter:blur(6px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,246,227,0.06)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:56px;height:56px;object-fit:contain;border-radius:8px;background:transparent}
+    .brand h1{margin:0;color:var(--cream);font-size:1.05rem;letter-spacing:1px}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--cream);text-decoration:none;font-weight:600}
+    .cta{background:var(--cream);color:var(--navy);padding:8px 12px;border-radius:999px;border:none;font-weight:700;cursor:pointer}
+    .hero{padding:48px 18px;text-align:center;color:var(--cream)}
+    .hero h2{font-size:2.4rem;margin:10px 0}
+    .hero p{max-width:980px;margin:0 auto;font-size:1.05rem;opacity:0.95}
+    .buttons{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .btn-outline{background:transparent;border:2px solid var(--cream);color:var(--cream);padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:700}
+    main{max-width:1180px;margin:28px auto;padding:0 16px}
+    section{margin-bottom:28px}
+    h3{color:var(--navy);margin-bottom:12px}
+    .grid{display:grid;gap:16px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-4{grid-template-columns:repeat(4,1fr)}
+    .card{background:var(--cream);border-radius:var(--radius);padding:16px;box-shadow:var(--card-shadow);color:var(--navy)}
+    .destino{min-height:160px;display:flex;flex-direction:column;justify-content:space-between}
+    .price{font-size:1.1rem;font-weight:800}
+    .small{font-size:0.9rem;color:rgba(5,10,48,0.7)}
+    .continent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .pet{display:flex;gap:12px;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(90deg,rgba(255,246,227,0.06),rgba(255,246,227,0.02));border:1px solid rgba(255,246,227,0.04)}
+    footer{padding:18px;text-align:center;color:var(--cream);background:linear-gradient(90deg,rgba(5,10,48,0.06),rgba(5,10,48,0.02))}
+    form input, form select, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(5,10,48,0.08);margin-top:6px}
+    .center{display:flex;justify-content:center;align-items:center}
+    .buy-btn{background:var(--navy);color:var(--cream);padding:10px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    /* modal */
+    .modal{position:fixed;left:0;top:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:120}
+    .modal.open{display:flex}
+    .modal .box{width:480px;max-width:92%;background:var(--white);border-radius:12px;padding:18px;color:var(--navy);box-shadow:0 20px 50px rgba(5,10,48,0.3)}
+    .pay-tabs{display:flex;gap:8px;margin-bottom:12px}
+    .tab{flex:1;padding:8px;border-radius:8px;text-align:center;border:1px solid rgba(5,10,48,0.06);cursor:pointer}
+    .tab.active{background:var(--navy);color:var(--cream);font-weight:700}
+    .pay-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+    @media(max-width:900px){.cols-3{grid-template-columns:1fr}.continent-grid{grid-template-columns:1fr}nav{display:none}.brand h1{font-size:0.95rem}}
+  </style>
+</head>
+<body>
+<header>
+<div class="brand">
+<img alt="logo" id="logo" src="logo.png"/>
+<div><h1>Skylla Adventures</h1><div class="small" style="color:var(--cream)">Collect moments, not just miles</div></div>
+</div>
+<nav>
+<a href="#home">Inicio</a>
+<a href="#destinos">Destinos</a>
+<a href="#packs">Packs</a>
+<a href="#precios">Precios</a>
+<a href="#boletos">Boletos</a>
+<a href="#contacto">Contacto</a>
+<button class="cta" id="langToggle">EN</button>
+</nav>
+<button class="cta" onclick="document.location='#boletos'">Reservar</button>
+</header>
+<section class="hero" id="home">
+<h2>"Collect moments, not just miles"</h2>
+<p><strong>Colecciona momentos, no solo millas.</strong> Skylla Adventures vuela a todo el mundo y diseña packs con hoteles, resorts y experiencias para cada clase de pasaje. Destinos destacados: Tokio, Bahamas y Roma.</p>
+<div class="buttons">
+<button class="cta" onclick="document.location='#destinos'">Explorar Destinos</button>
+<button class="btn-outline" onclick="document.location='#packs'">Comprar Packs</button>
+</div>
+</section>
+<main>
+<section id="destinos">
+<h3>Destinos destacados</h3>
+<div class="grid cols-3">
+<div class="card destino">
+<div>
+<h4>Tokio, Japón</h4>
+<p class="small">La ciudad más pedida: templos, tecnología, gastronomía y cultura pop.</p>
+</div>
+<div class="center"><img alt="tokio" src="tokyo.png" style="width:100%;max-width:210px;border-radius:10px"/></div>
+</div>
+<div class="card destino">
+<div>
+<h4>Islas Bahamas</h4>
+<p class="small">Playas cristalinas y resorts all-inclusive para descansar y explorar.</p>
+</div>
+<div class="center"><img alt="bahamas" src="bahamas.png" style="width:100%;max-width:210px;border-radius:10px"/></div>
+</div>
+<div class="card destino">
+<div>
+<h4>Roma, Italia</h4>
+<p class="small">Historia, arte y gastronomía en cada esquina. Tours guiados incluidos en packs.</p>
+</div>
+<div class="center"><img alt="roma" src="rome.png" style="width:100%;max-width:210px;border-radius:10px"/></div>
+</div>
+</div>
+</section>
+<section id="packs">
+<h3>Packs Turísticos</h3>
+<p class="small">Cada pack incluye: vuelo (según clase), hotel (3★-5★ según elección), traslados, tours y asistencia 24/7. Pet friendly.</p>
+<div class="grid cols-3" style="margin-top:12px">
+<div class="card center" style="flex-direction:column">
+<h4>Pack Tokio</h4>
+<p class="small">5 noches, hotel 4★, tour a monte Fuji, taller de sushi.</p>
+<div class="price">Desde <span class="price-amount">$1,800</span></div>
+<button class="buy-btn" data-pack="Tokio" data-price="1800">Comprar Pack</button>
+</div>
+<div class="card center" style="flex-direction:column">
+<h4>Pack Bahamas</h4>
+<p class="small">7 noches, resort 5★, snorkel y catamarán.</p>
+<div class="price">Desde <span class="price-amount">$2,200</span></div>
+<button class="buy-btn" data-pack="Bahamas" data-price="2200">Comprar Pack</button>
+</div>
+<div class="card center" style="flex-direction:column">
+<h4>Pack Roma</h4>
+<p class="small">5 noches, hotel céntrico, tour Coliseo y Vaticano.</p>
+<div class="price">Desde <span class="price-amount">$2,000</span></div>
+<button class="buy-btn" data-pack="Roma" data-price="2000">Comprar Pack</button>
+</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6 mt-8">
+<div class="card">
+<div class="card-content p-6">
+<h4 class="text-xl font-semibold mb-2">Zen Elite</h4>
+<p>Primera Clase — $5,200 – $7,200</p>
+</div>
+</div>
+<div class="card">
+<div class="card-content p-6">
+<h4 class="text-xl font-semibold mb-2">Samurai Business</h4>
+<p>Ejecutiva — $2,800 – $4,200</p>
+</div>
+</div>
+<div class="card">
+<div class="card-content p-6">
+<h4 class="text-xl font-semibold mb-2">Neon Plus</h4>
+<p>Económica Premium — $1,600 – $2,200</p>
+</div>
+</div>
+<div class="card">
+<div class="card-content p-6">
+<h4 class="text-xl font-semibold mb-2">Sakura Go</h4>
+<p>Económica — $950 – $1,350</p>
+</div>
+</div>
+</div>
+</section>
+<section id="precios">
+<h3>Precios por Clase</h3>
+<div class="grid cols-4">
+<div class="card center"><h4>Economía</h4><div class="price">$950 - $1,350</div><div class="small">Ideal para viajeros con presupuesto</div></div>
+<div class="card center"><h4>Económica Premium</h4><div class="price">$1,600 - $2,200</div><div class="small">Mayor espacio y servicios</div></div>
+<div class="card center"><h4>Ejecutiva</h4><div class="price">$2,800 - $4,200</div><div class="small">Confort y beneficios VIP</div></div>
+<div class="card center"><h4>Primera Clase</h4><div class="price">$5,200 - $7,200</div><div class="small">Experiencia de lujo total</div></div>
+</div>
+</section>
+<section id="boletos">
+<h3>Compra de Boletos</h3>
+<div class="card" style="max-width:880px;margin:auto">
+<form class="grid grid-cols-1" id="fareForm" style="gap:12px">
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<div style="flex:1;min-width:200px"><label>Origen</label><input id="origin" placeholder="Ciudad de salida"/></div>
+<div style="flex:1;min-width:200px"><label>Destino</label><input id="destination" placeholder="Ciudad de destino"/></div>
+</div>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<div style="flex:1;min-width:180px"><label>Fecha ida</label><input id="dateOut" type="date"/></div>
+<div style="flex:1;min-width:180px"><label>Fecha regreso</label><input id="dateIn" type="date"/></div>
+<div style="flex:1;min-width:180px"><label>Clase</label><select id="classChoice"><option value="economy">Económica</option><option value="premium">Económica Premium</option><option value="business">Ejecutiva</option><option value="first">Primera Clase</option></select></div>
+</div>
+<div class="center"><button class="buy-btn" id="searchFlights" type="button">Buscar Vuelos</button></div>
+</form>
+</div>
+</section>
+<section id="contacto">
+<h3>Contacto y Reservas</h3>
+<div class="grid cols-3">
+<div class="card">
+<h4>Oficinas</h4>
+<p class="small">+51 999 888 777<br/>contacto@skyllaadventures.com</p>
+</div>
+<div class="card">
+<h4>Atención</h4>
+<p class="small">Horario: Lun-Dom 8:00 - 22:00<br/>Asistencia 24/7 para pasajeros</p>
+</div>
+<div class="card">
+<h4>Formulario</h4>
+<form class="small" id="contactForm" style="display:grid;gap:8px">
+<input id="cname" placeholder="Nombre"/>
+<input id="cemail" placeholder="Correo electrónico"/>
+<textarea id="cmsg" placeholder="Mensaje" rows="3"></textarea>
+<div class="center"><button class="buy-btn" id="sendContact" type="button">Enviar</button></div>
+</form>
+</div>
+</div>
+</section>
+<section class="card" id="continentes">
+<h3>Viajamos a todo el mundo</h3>
+<div class="continent-grid" style="margin-top:12px">
+<div class="card"><strong>América</strong><p class="small">Norte, Centro y Sudamérica: Nueva York, Lima, Buenos Aires, Cancún...</p></div>
+<div class="card"><strong>Europa</strong><p class="small">París, Roma, Londres, Estambul...</p></div>
+<div class="card"><strong>Asia</strong><p class="small">Tokio, Dubái, Seúl, Bangkok...</p></div>
+<div class="card"><strong>África</strong><p class="small">El Cairo, Ciudad del Cabo, Marrakech...</p></div>
+<div class="card"><strong>Oceanía</strong><p class="small">Sídney, Auckland...</p></div>
+<div class="card"></div>
+</div>
+</section>
+<section class="pet card" style="margin-top:14px">
+<div style="flex:1">
+<h4>Pet friendly</h4>
+<p class="small">Permite mascotas en cabina (hasta 8 kg) y en bodega climatizada (hasta 32 kg). Tarifas orientativas: Cabina USD 95 / Bodega USD 180 por tramo. Requisitos veterinarios aplican.</p>
+</div>
+<div><img alt="airplane" src="airplane.png" style="width:180px;max-width:38vw"/></div>
+</section>
+<section id="reviews" style="margin-top:18px">
+<h3>Reseñas (reported speech)</h3>
+<div class="grid cols-3" style="margin-top:12px">
+<div class="card"><em>Los clientes dijeron que Skylla les había dado la mejor experiencia y que Tokio fue inolvidable.</em></div>
+<div class="card"><em>Comentaron que el paquete a Bahamas fue perfecto para descansar y explorar.</em></div>
+<div class="card"><em>Afirmaron que la política pet friendly les dio confianza para viajar con su mascota.</em></div>
+</div>
+</section>
+</main>
+<footer>
+<div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+<div style="display:flex;align-items:center;gap:12px">
+<img alt="logo small" src="logo.png" style="width:48px;height:48px;object-fit:contain"/>
+<div style="color:var(--cream)"><strong>Skylla Adventures</strong><div class="small">Collect moments, not just miles</div></div>
+</div>
+<div class="small" style="color:var(--cream)">© 2025 Skylla Adventures — Contenidos ficticios</div>
+</div>
+</footer>
+<!-- payment / modal UI -->
+<div aria-hidden="true" class="modal" id="modal" role="dialog">
+<div class="box">
+<h4 id="modalTitle">Pagar Pack</h4>
+<div class="pay-tabs" role="tablist">
+<div class="tab active" data-pay="card">Tarjeta</div>
+<div class="tab" data-pay="paypal">PayPal</div>
+</div>
+<div id="payCard">
+<label>Nombre en la tarjeta</label><input id="cardName" placeholder="Nombre completo"/>
+<label>Número de tarjeta</label><input id="cardNumber" placeholder="1234 5678 9012 3456"/>
+<label>Fecha (MM/AA)</label><input id="cardExp" placeholder="MM/AA">
+<label>CVC</label><input id="cardCvc" placeholder="CVC">
+</input></input></div>
+<div id="payPaypal" style="display:none">
+<p>Serás redirigido a PayPal (simulado).</p>
+</div>
+<div class="pay-actions">
+<button class="tab" id="cancelPay">Cancelar</button>
+<button class="buy-btn" id="confirmPay">Pagar</button>
+</div>
+</div>
+</div>
+<script>
+    // language toggle (ES <-> EN)
+    const langBtn = document.getElementById('langToggle');
+    let lang = 'es';
+    langBtn.addEventListener('click', ()=>{
+      if(lang==='es'){
+        document.documentElement.lang='en';
+        document.querySelector('#home h2').innerText='"Collect moments, not just miles"';
+        document.querySelector('#home p').innerHTML='<strong>Collect moments, not just miles.</strong> Skylla Adventures flies worldwide and creates packs with hotels, resorts and experiences for every ticket class. Featured: Tokyo, Bahamas and Rome.';
+        document.querySelectorAll('nav a')[0].innerText='Home';
+        document.querySelectorAll('nav a')[1].innerText='Destinations';
+        document.querySelectorAll('nav a')[2].innerText='Packs';
+        document.querySelectorAll('nav a')[3].innerText='Prices';
+        document.querySelectorAll('nav a')[4].innerText='Tickets';
+        document.querySelectorAll('nav a')[5].innerText='Contact';
+        lang='en'; langBtn.innerText='ES';
+      } else { location.reload(); }
+    });
+
+    // Buy pack modal
+    const modal = document.getElementById('modal');
+    const buyBtns = document.querySelectorAll('.buy-btn[data-pack]');
+    buyBtns.forEach(b=> b.addEventListener('click', (e)=>{
+      const pack = e.currentTarget.getAttribute('data-pack');
+      const price = e.currentTarget.getAttribute('data-price');
+      document.getElementById('modalTitle').innerText = `Comprar pack: ${pack} - $${price}`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }));
+    document.getElementById('cancelPay').addEventListener('click', ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+    document.getElementById('confirmPay').addEventListener('click', ()=>{
+      // simulate payment success
+      alert('Pago simulado realizado. Gracias por tu compra (esto es una demo).');
+      modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    });
+    document.querySelectorAll('.tab').forEach(t=> t.addEventListener('click',(ev)=>{
+      document.querySelectorAll('.tab').forEach(x=> x.classList.remove('active'));
+      ev.currentTarget.classList.add('active');
+      const p = ev.currentTarget.getAttribute('data-pay');
+      document.getElementById('payCard').style.display = p==='card' ? 'block' : 'none';
+      document.getElementById('payPaypal').style.display = p==='paypal' ? 'block' : 'none';
+    }));
+
+    // Search flights (simulated)
+    document.getElementById('searchFlights').addEventListener('click', ()=>{
+      const o=document.getElementById('origin').value.trim();
+      const d=document.getElementById('destination').value.trim();
+      const out=document.getElementById('dateOut').value;
+      const ret=document.getElementById('dateIn').value;
+      const cls=document.getElementById('classChoice').value;
+      if(!o||!d||!out){ alert('Por favor completa origen, destino y fecha de ida.'); return; }
+      alert(`Simulación: buscador activado\\nOrigen: ${o}\\nDestino: ${d}\\nClase: ${cls}\\nSalida: ${out}${ret? '\\nRegreso: '+ret: ''}`);
+    });
+
+    // contact form simulation
+    document.getElementById('sendContact').addEventListener('click', ()=>{
+      const name=document.getElementById('cname').value.trim();
+      const email=document.getElementById('cemail').value.trim();
+      const msg=document.getElementById('cmsg').value.trim();
+      if(!name||!email||!msg){ alert('Por favor completa todos los campos.'); return; }
+      alert('Mensaje enviado (simulado). Nos contactaremos pronto. Gracias, '+name+'!');
+      document.getElementById('contactForm').reset();
+    });
+
+    // buy generic pack buttons without data-pack
+    document.querySelectorAll('.buy-btn').forEach(b=>{
+      if(!b.dataset.pack){
+        b.addEventListener('click', ()=>{
+          alert('Función de reserva simulada. Para comprar packs use los botones en la sección Packs.');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
